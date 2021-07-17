@@ -47,13 +47,13 @@ class DeepLinkFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val textView = view.findViewById<TextView>(R.id.text)
-        textView.text = arguments?.getString("myarg")
+        textView.text = arguments?.getString("args")
 
         val notificationButton = view.findViewById<Button>(R.id.send_notification_button)
         notificationButton.setOnClickListener {
             val editArgs = view.findViewById<EditText>(R.id.args_edit_text)
             val args = Bundle()
-            args.putString("myarg", editArgs.getText().toString())
+            args.putString("args", editArgs.getText().toString())
 
             val deeplink = findNavController().createDeepLink()
                     .setDestination(R.id.deeplink_dest)
